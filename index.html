@@ -31,7 +31,7 @@ cursor: pointer;
                       <br>
                       <br>
                       This  is meant to be a tool for security researchers and journalists. The site was built feb 2021 with minimum functionality, expect more cool things to appear; notifications when ransomware site has new updates, new ransomware sites, data analytics of leaked data etc.
-                      if you need to contact me or submit a ransomware site contact me  
+                      if you need to contact me or submit a ransomware site: gressquel @ outlook.com
                     </div>
                
                 </div>
@@ -46,9 +46,9 @@ cursor: pointer;
                 </div>
             </div>
             <div class="col-10 mt-2">
-                <span>Screenshot last captured: 22.01.2021</span>
+                <span v-bind:title="selectedSite.lastScreenshot">Screenshot last captured: {{formatTime(selectedSite.lastScreenshot)}} ago</span>
                 <div class="shadow-lg bg-body rounded mt-3">
-                    <img class="img-fluid" v-bind:src="getImgUrl(1)"></img>
+                    <img class="img-fluid" v-bind:src="selectedSite.screenshot"></img>
                 </div>
             </div>
         </div>
