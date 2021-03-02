@@ -45,10 +45,10 @@ cursor: pointer;
                         </div>
                 </div>
             </div>
-            <div class="col-10 mt-2">
-                <span v-bind:title="selectedSite.lastScreenshot">Screenshot last captured: {{formatTime(selectedSite.lastScreenshot)}} ago</span>
+            <div class="col-10 mt-5">
+                <span v-bind:title="selectedSite.lastScreenshot">Screenshot last captured: {{formatTime(selectedSite.lastScreenshot)}} ago</span> <a href="#">Report error</a>
                 <div class="shadow-lg bg-body rounded mt-3">
-                    <img class="img-fluid" v-bind:src="selectedSite.screenshot"></img>
+                    <img id="imgcontainer" class="img-fluid" v-bind:src="selectedSite.screenshot"></img>
                 </div>
             </div>
         </div>

@@ -44,6 +44,16 @@ function formatDate(date) {
   return [day, month, year].join('.');
 }
 
+function scrollToImage(){
+  var ua = navigator.userAgent;
+  var isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(ua);
+
+  if (isMobile) {
+    var elmnt = document.getElementById("imgcontainer");
+    elmnt.scrollIntoView();
+  }
+}
+
 var app4 = new Vue({
   el: '#app-4',
   mounted: function () {
@@ -67,6 +77,7 @@ var app4 = new Vue({
       event.selected = true;
       event.screenshot = `https://ransomwatchs3.s3.eu-north-1.amazonaws.com/screenshots/${event.siteid}/${formatDate(event.lastScreenshot)}.png`
       this.selectedSite = event;
+      scrollToImage();
     },
     loadSites: function() {
       var self=this;
@@ -74,6 +85,7 @@ var app4 = new Vue({
       if(response.status == "200"){
       self.ransomSites = response.body;
       this.changeSite(response.body[0])
+  
       }
     })
   }
