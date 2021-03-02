@@ -1,1 +1,61 @@
-test
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Ransomwatch</title>
+<style>
+    body{
+        background-color: #f4f4f4
+    }
+    .sitesStyle{
+cursor: pointer;
+    }
+
+</style> 
+
+
+</head>
+  <body>
+    <div id="app-4" class="container-fluid">
+        <div class="row">
+            <div class="col-12"></div>
+            <div class="card w-100 mx-auto">
+                <div class="card-body">
+                    <div class="card-text">
+                     This is a website that takes screenshot twice a day of the biggest ransomware sites on the dark web (Tor). 
+                      There are only screenshots and under no circumstances will I provide link or leaked files!
+                      <br>
+                      <br>
+                      This  is meant to be a tool for security researchers and journalists. The site was built feb 2021 with minimum functionality, expect more cool things to appear; notifications when ransomware site has new updates, new ransomware sites, data analytics of leaked data etc.
+                      if you need to contact me or submit a ransomware site contact me  
+                    </div>
+               
+                </div>
+              </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="mt-5">
+                    <div class="list-group" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action sitesStyle" v-on:click="changeSite(site)" v-bind:class="{ active: site.selected }" v-for="site in ransomSites">{{ site.siteName }}</a>
+                        </div>
+                </div>
+            </div>
+            <div class="col-10 mt-2">
+                <span>Screenshot last captured: 22.01.2021</span>
+                <div class="shadow-lg bg-body rounded mt-3">
+                    <img class="img-fluid" v-bind:src="getImgUrl(1)"></img>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.2.0/vue-resource.min.js"></script>
+      <script src="application.js"></script>
+      
+      </body>
+</html>
