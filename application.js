@@ -70,6 +70,7 @@ var app4 = new Vue({
       return timeSince(new Date(index));
   },
     changeSite: function (event) {
+      if(event.lastScreenshot == "") return;
       var old = this.ransomSites.find(element => element.selected ===true);
      if(old!= undefined) {
        old.selected = false;
@@ -83,9 +84,8 @@ var app4 = new Vue({
       var self=this;
       this.$http.get('https://qc1m8bddrd.execute-api.eu-north-1.amazonaws.com/Production/ransomScraperGetAllSites').then(function(response){
       if(response.status == "200"){
-      self.ransomSites = response.body;
+      self.ransomSites = response.body.filter(x=> x.lastScreenshot !== "");
       this.changeSite(response.body[0])
-  
       }
     })
   }

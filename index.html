@@ -30,7 +30,7 @@ cursor: pointer;
                       There are only screenshots and under no circumstances will I provide link or leaked files!
                       <br>
                       <br>
-                      This  is meant to be a tool for security researchers and journalists. The site was built feb 2021 with minimum functionality, expect more cool things to appear; notifications when ransomware site has new updates, new ransomware sites, data analytics of leaked data etc.
+                      This  is meant to be a tool for security researchers and journalists. The site was built march 2021 with minimum functionality, expect more cool things to appear; notifications when ransomware site has new updates, new ransomware sites, data analytics of leaked data etc.
                       if you need to contact me or submit a ransomware site: gressquel at outlook.com
                     </div>
                
@@ -41,12 +41,12 @@ cursor: pointer;
             <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                 <div class="mt-5">
                     <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action sitesStyle" v-on:click="changeSite(site)" v-bind:class="{ active: site.selected }" v-for="site in ransomSites">{{ site.siteName }}</a>
+                        <a class="list-group-item list-group-item-action sitesStyle" v-on:click="changeSite(site)" v-bind:class="{ active: site.selected }" v-for="site in ransomSites">{{ site.siteName }} <span style="color:darkgray" class="pull-right">({{formatTime(selectedSite.lastScreenshot)}} ago)</span></a>
                         </div>
                 </div>
             </div>
             <div class="col-10 mt-5">
-                <span v-bind:title="selectedSite.lastScreenshot">Screenshot last captured: {{formatTime(selectedSite.lastScreenshot)}} ago</span> <a href="#">Report error</a>
+                <span v-bind:title="selectedSite.lastScreenshot">Screenshot last captured: {{selectedSite.lastScreenshot}}</span> <a href="#">Report error</a>
                 <div class="shadow-lg bg-body rounded mt-3">
                     <img id="imgcontainer" class="img-fluid" v-bind:src="selectedSite.screenshot"></img>
                 </div>
