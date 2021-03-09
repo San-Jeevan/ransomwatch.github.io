@@ -47,7 +47,7 @@ cursor: pointer;
             <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                 <div class="mt-5">
                     <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action sitesStyle" v-on:click="changeSite(site)" v-bind:class="{ active: site.selected }" v-for="site in ransomSites">{{ site.siteName }} <span style="color:darkgray" class="pull-right">({{formatTime(site.lastScreenshot)}} ago)</span></a>
+                        <a class="list-group-item list-group-item-action sitesStyle" v-on:click="changeSite(site)" v-bind:class="{ active: site.selected }" v-for="site in ransomSites">{{ site.siteName }} <span style="color:darkgray" class="pull-right">({{formatTime(site.lastScreenshot)}} ago)</span>  <img height="24px" src="assets/new-badge-2-64.png" v-if="site.siteid==15"></img> </a>
                         </div>
                 </div>
             </div>
