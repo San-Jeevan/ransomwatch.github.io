@@ -15,6 +15,12 @@
 cursor: pointer;
     }
 
+    .loading {
+  background: transparent url('/assets/loader.gif') center no-repeat;
+  height: 400px;
+  width: 400px;
+}
+
 
 
 </style> 
@@ -54,7 +60,8 @@ cursor: pointer;
             <div class="col-10 mt-5">
                 <span v-bind:title="selectedSite.lastScreenshot">Screenshot last captured: {{selectedSite.lastScreenshot}}</span>
                 <div class="shadow-lg bg-body rounded mt-3">
-                    <img id="imgcontainer" class="img-fluid" v-bind:src="selectedSite.screenshot"></img>
+                    <div v-if="imageLoading" class="loading"></div>
+                    <img id="imgcontainer" class="img-fluid" v-bind:src="selectedSite.screenshot"  @load="ImgLoaded"></img>
                 </div>
             </div>
         </div>

@@ -55,13 +55,17 @@ var app4 = new Vue({
     this.loadSites()
   },
   data: {
+    imageLoading: false,
     selectedSite : {},
     ransomSites: [
     ]
   },
-  methods: {
+  methods: { 
+    ImgLoaded() {
+    console.log("img loaded");
+    this.imageLoading = false;
+},
     formatTime: function(index) {
-   
       return timeSince(new Date(index));
   },
     changeSite: function (event) {
@@ -70,6 +74,7 @@ var app4 = new Vue({
      if(old!= undefined) {
        old.selected = false;
      }
+     this.imageLoading = true;
       event.selected = true;
       event.screenshot = `https://ransomwatchs3.s3.eu-north-1.amazonaws.com/screenshots/${event.siteid}/${formatDate(event.lastScreenshot)}.png`
       this.selectedSite = event;
