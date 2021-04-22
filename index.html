@@ -43,11 +43,11 @@ cursor: pointer;
                       telegram: <a href="http://t.me/ransomWatch" target="_blank">http://t.me/ransomWatch</a>
                       <br>
                      <br>
-                      13.04.2021: Marketo added
-                      <br>
                       14.04.2021: LV ransomware added
                       <br>
                       20.04.2021: File Leaks group added
+                      <br>
+                      21.04.2021: A second LV Group site has been added
                     </div>
                
                 </div>
@@ -57,7 +57,7 @@ cursor: pointer;
             <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                 <div class="mt-5">
                     <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action sitesStyle" v-on:click="changeSite(site)" v-bind:class="{ active: site.selected }" v-for="site in ransomSites">{{ site.siteName }} <span style="color:darkgray" class="pull-right">({{formatTime(site.lastScreenshot)}} ago)</span>  <img height="24px" src="assets/new-badge-2-64.png" v-if="site.siteid==23 || site.siteid==20 ||site.siteid==22"></img> </a>
+                        <a class="list-group-item list-group-item-action sitesStyle" v-on:click="changeSite(site)" v-bind:class="{ active: site.selected }" v-for="site in ransomSites">{{ site.siteName }} <span style="color:darkgray" class="pull-right">({{formatTime(site.lastScreenshot)}} ago)</span>  <img height="24px" src="assets/new-badge-2-64.png" v-if="site.siteid==23 || site.siteid==24 ||site.siteid==22"></img> </a>
                         </div>
                 </div>
             </div>
