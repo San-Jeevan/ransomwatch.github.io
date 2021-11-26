@@ -7,23 +7,22 @@
     <script src="libs/vue.min.js"></script>
     <link href="libs/bootstrap.min.css" rel="stylesheet">
     <title>Ransomwatch</title>
+
 <style>
-    body{
+    body {
         background-color: #f4f4f4
     }
-    .sitesStyle{
-cursor: pointer;
+
+    .sitesStyle {
+        cursor: pointer;
     }
 
     .loading {
-  background: transparent url('/assets/loader.gif') center no-repeat;
-  height: 400px;
-  width: 400px;
-}
-
-
-
-</style> 
+        background: transparent url('./assets/loader.gif') center no-repeat;
+        height: 400px;
+        width: 400px;
+    }
+</style>
 
 
 
@@ -42,21 +41,18 @@ cursor: pointer;
                         functionality, expect more cool things to appear; notifications when ransomware site has new updates, new ransomware
                         sites, data analytics of leaked data etc.
                         <br>
-                    
-                        04.05.2021: N3tw0rm and Lorenz added
                         <br>
-                        07.05.2021: XING added
-                        <br>
-                        26.11.2021: Big site update undergoing. New design + users will be able to submit ransomware links and system will crawl automatically
-                    </div>
-               
+                      </div>
                 </div>
+
               </div>
         </div>
         <div class="row">
             <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                <div class="mt-5">
+                <div class="mt-3">
                     <div class="list-group" id="list-tab" role="tablist">
+                        <button style="margin-bottom: 20px;"  v-on:click="view=2" type="button" class="btn btn-danger">SUBMIT RANSOMWARE LINK</button>
+                        <br>
                         <a class="list-group-item list-group-item-action sitesStyle" v-on:click="changeSite(site)"
                             v-bind:class="{ active: site.selected }" v-for="site in ransomSites">{{ site.siteName }}
                             <span style="color:darkgray" class="pull-right">({{formatTime(site.lastScreenshot)}} ago)</span>
@@ -66,11 +62,39 @@ cursor: pointer;
                     </div>
             </div>
             <div class="col-10 mt-5">
-                <span v-bind:title="selectedSite.lastScreenshot">Screenshot last captured: {{selectedSite.lastScreenshot}}</span>
-                <div class="shadow-lg bg-body rounded mt-3">
-                    <div v-if="imageLoading" class="loading"></div>
-                    <img id="imgcontainer" class="img-fluid" v-bind:src="selectedSite.screenshot"  @load="ImgLoaded"></img>
+                <!-- SUBMITVIEW -->
+                <div v-if="view==2">
+                    <h1>Submit onion url</h1>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="input-group mt-3">
+                                <input type="text" class="form-control" v-model="submitSiteUrl" placeholder="on the format: http://ekbgzchl6x2ias37.onion/">
+                                <button v-on:click="submitSite(submitSiteUrl)" class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
+                              </div>
+                        </div>
+                        
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-6 mt-3">
+                            <div v-if="imageLoading" class="loading"></div>
+                            <div v-if="submitSiteUrlResponse!==''" class="alert alert-primary" role="alert">
+                                {{submitSiteUrlResponse}}
+                              </div>
+                        </div>
+                    </div>
+                   
                 </div>
+
+                <!-- SCREENSHOTVIEW -->
+                <div style="padding-top: 20px;" v-if="view==1">
+                    <span   v-bind:title="selectedSite.lastScreenshot">Screenshot last captured: {{selectedSite.lastScreenshot}}</span>
+                    <div class="shadow-lg bg-body rounded mt-3">
+                        <div v-if="imageLoading" class="loading"></div>
+                        <img id="imgcontainer" class="img-fluid" v-bind:src="selectedSite.screenshot"  @load="ImgLoaded"></img>
+                    </div>
+                </div>
+               
             </div>
         </div>
     </div>

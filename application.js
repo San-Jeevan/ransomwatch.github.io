@@ -56,7 +56,10 @@ var app4 = new Vue({
   },
   data: {
     imageLoading: false,
+    view: 1,
     selectedSite : {},
+    submitSiteUrl: "",
+    submitSiteUrlResponse: "",
     ransomSites: [
     ]
   },
@@ -69,6 +72,7 @@ var app4 = new Vue({
       return timeSince(new Date(index));
   },
     changeSite: function (event) {
+      this.view=1;
       if(event.lastScreenshot == "") return;
       var old = this.ransomSites.find(element => element.selected ===true);
      if(old!= undefined) {
@@ -79,6 +83,20 @@ var app4 = new Vue({
       event.screenshot = `https://ransomwatchs3.s3.eu-north-1.amazonaws.com/screenshots/${event.siteid}/${formatDate(event.lastScreenshot)}.png`
       this.selectedSite = event;
       scrollToImage();
+    },
+    submitSite: function (_siteUrl) {
+      console.log(`submitSite called with input ${_siteUrl}`);
+      var self = this;
+      this.imageLoading = true;
+      this.$http.post('https://qc1m8bddrd.execute-api.eu-north-1.amazonaws.com/Production/ransomWatchSubmitNewSite', {
+        siteUrl: _siteUrl
+      }).then(function (response) {
+        this.imageLoading = false;
+        if (response.status == "200") {
+          console.log(response);
+          this.submitSiteUrlResponse = response.body.Message;
+        }
+      })
     },
     loadSites: function() {
       var self=this;
