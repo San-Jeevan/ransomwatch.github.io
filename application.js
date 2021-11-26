@@ -84,7 +84,11 @@ var app4 = new Vue({
       var self=this;
       this.$http.get('https://qc1m8bddrd.execute-api.eu-north-1.amazonaws.com/Production/ransomScraperGetAllSites').then(function(response){
       if(response.status == "200"){
-      self.ransomSites = response.body.filter(x=> x.lastScreenshot !== "");
+      self.ransomSites = response.body.filter(x=> x.lastScreenshot !== "").sort(function(a, b) {
+        var c = new Date(a.lastScreenshot);
+        var d = new Date(b.lastScreenshot);
+        return c-d;
+    });
       this.changeSite(response.body[0])
       }
     })
