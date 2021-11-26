@@ -43,12 +43,11 @@ cursor: pointer;
                         sites, data analytics of leaked data etc.
                         <br>
                     
->
                         04.05.2021: N3tw0rm and Lorenz added
                         <br>
                         07.05.2021: XING added
                         <br>
-                        26.11.2021: Big site update. Now users can submit TOR links and it will index automatically
+                        26.11.2021: Big site update undergoing. New design + users will be able to submit ransomware links and system will crawl automatically
                     </div>
                
                 </div>
@@ -58,9 +57,13 @@ cursor: pointer;
             <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                 <div class="mt-5">
                     <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action sitesStyle" v-on:click="changeSite(site)" v-bind:class="{ active: site.selected }" v-for="site in ransomSites">{{ site.siteName }} <span style="color:darkgray" class="pull-right">({{formatTime(site.lastScreenshot)}} ago)</span>  <img height="24px" src="assets/new-badge-2-64.png" v-if="site.siteid==26 || site.siteid==27 ||site.siteid==25"></img> </a>
-                        </div>
-                </div>
+                        <a class="list-group-item list-group-item-action sitesStyle" v-on:click="changeSite(site)"
+                            v-bind:class="{ active: site.selected }" v-for="site in ransomSites">{{ site.siteName }}
+                            <span style="color:darkgray" class="pull-right">({{formatTime(site.lastScreenshot)}} ago)</span>
+                            <img height="24px" src="assets/new-badge-2-64.png" v-if="site.siteid==26 || site.siteid==27 ||site.siteid==25"></img>
+                        </a>
+                    </div>
+                    </div>
             </div>
             <div class="col-10 mt-5">
                 <span v-bind:title="selectedSite.lastScreenshot">Screenshot last captured: {{selectedSite.lastScreenshot}}</span>
