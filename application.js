@@ -87,7 +87,7 @@ var app4 = new Vue({
       self.ransomSites = response.body.filter(x=> x.lastScreenshot !== "").sort(function(a, b) {
         var c = new Date(a.lastScreenshot);
         var d = new Date(b.lastScreenshot);
-        return c-d;
+        return d-c;
     });
       this.changeSite(response.body[0])
       }
