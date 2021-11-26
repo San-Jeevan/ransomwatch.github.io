@@ -70,12 +70,21 @@
             <div class="col-10 mt-5">
                 <!-- SUBMITVIEW -->
                 <div v-if="view==2">
-                    <h1>Submit onion url</h1>
+                    <h1>Submit Ransomware leak site</h1>
                     <div class="row">
                         <div class="col-6">
-                            <div class="input-group mt-3">
-                                <input type="text" class="form-control" v-model="submitSiteUrl" placeholder="on the format: http://ekbgzchl6x2ias37.onion/">
-                                <button v-on:click="submitSite(submitSiteUrl)" class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
+            
+                            <div>
+                                <div>
+                                    <label for="exampleFormControlInput1" class="form-label">Group name</label>
+                                    <input id="exampleFormControlInput1" type="text" class="form-control" v-model="submitSiteName" placeholder="">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Onion url</label>
+                                    <input id="exampleFormControlTextarea1" type="text" class="form-control" v-model="submitSiteUrl" placeholder="on the format: http://ekbgzchl6x2ias37.onion/">
+                                  </div>
+
+                                <button v-on:click="submitSite(submitSiteUrl, submitSiteName)" class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
                               </div>
                         </div>
                     </div>

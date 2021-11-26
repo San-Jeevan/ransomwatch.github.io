@@ -59,6 +59,7 @@ var app4 = new Vue({
     view: 1,
     selectedSite: {},
     submitSiteUrl: "",
+    submitSiteName: "",
     submitSiteUrlResponse: "",
     crawlPreviewSuccess: false,
     crawlPreviewData: "",
@@ -103,12 +104,13 @@ var app4 = new Vue({
       })
     },
     // --------SUBMITSITE---------
-    submitSite: function (_siteUrl) {
+    submitSite: function (_siteUrl, _submitSiteName) {
       console.log(`submitSite called with input ${_siteUrl}`);
       var self = this;
       this.imageLoading = true;
       axios.post('https://qc1m8bddrd.execute-api.eu-north-1.amazonaws.com/Production/ransomWatchSubmitNewSite', {
-        siteUrl: _siteUrl
+        siteUrl: _siteUrl,
+        siteName: _submitSiteName
       }).then(function (response) {
         self.imageLoading = false;
         if (response.status == "200") {
