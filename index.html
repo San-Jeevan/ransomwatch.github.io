@@ -47,7 +47,7 @@
                         functionality, expect more cool things to appear; notifications when ransomware site has new updates, new ransomware
                         sites, data analytics of leaked data etc.
                         <br>
-                        <br>
+                        you can contact me on telegram: <a href="http://t.me/ransomWatch" target="_blank">http://t.me/ransomWatch</a>
                       </div>
                 </div>
 
@@ -62,7 +62,6 @@
                         <a class="list-group-item list-group-item-action sitesStyle" v-on:click="changeSite(site)"
                             v-bind:class="{ active: site.selected }" v-for="site in ransomSites">{{ site.siteName }}
                             <span style="color:darkgray" class="pull-right">({{formatTime(site.lastScreenshot)}} ago)</span>
-                            <img height="24px" src="assets/new-badge-2-64.png" v-if="site.siteid==26 || site.siteid==27 ||site.siteid==25"></img>
                         </a>
                     </div>
                     </div>
