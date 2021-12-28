@@ -132,7 +132,7 @@ var app4 = new Vue({
               var d = new Date(b.lastScreenshot);
               return d - c;
             });
-            self.changeSite(response.data[response.data.length-1])
+           self.changeSite(self.ransomSites[0])
           }
         });
 
