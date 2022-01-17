@@ -108,7 +108,7 @@ var app4 = new Vue({
       console.log(`submitSite called with input ${_siteUrl}`);
       var self = this;
       this.imageLoading = true;
-      axios.post('https://qc1m8bddrd.execute-api.eu-north-1.amazonaws.com/Production/ransomWatchSubmitNewSite', {
+      axios.post('https://qc1m8bddrd.execute-api.eu-north-1.amazonaws.com/Production/REMOVED', {
         siteUrl: _siteUrl,
         siteName: _submitSiteName
       }).then(function (response) {
