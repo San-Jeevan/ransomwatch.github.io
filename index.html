@@ -30,8 +30,6 @@
     }
 </style>
 
-
-
 </head>
   <body>
     <div id="app-4" class="container-fluid">
@@ -40,92 +38,15 @@
             <div class="card w-100 mx-auto">
                 <div class="card-body">
                     <div class="card-text">
-                        This is a website that takes screenshot once a day of the biggest ransomware sites on the dark web (Tor).
-                        There are only screenshots and under no circumstances will I provide link or leaked files!
-                        <br>
-                        This is meant to be a tool for security researchers and journalists. The site was built march 2021 with minimum
-                        functionality, expect more cool things to appear; notifications when ransomware site has new updates, new ransomware
-                        sites, data analytics of leaked data etc.
-                        <br>
-                        you can contact me on telegram: <a href="http://t.me/ransomWatch" target="_blank">http://t.me/ransomWatch</a>
-                      
-                      <h1>17.01.2022: to the one who submitted pedo link, I am reporting your IP right now. You will get caught</h1>
+                      <h1>26.07.2022: In preperation for incoming recession I have decided to kill all side project to free up $$$. This project is now dead. I have decided to publish source code if someone wants to container-fluid
+                        https://github.com/San-Jeevan/ransomwatch.org
+                      </h1>
                       </div>
                 </div>
 
               </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                <div class="mt-3">
-                    <div class="list-group" id="list-tab" role="tablist">
-                        <button style="margin-bottom: 20px;"  v-on:click="view=2" type="button" class="btn btn-danger">SUBMIT RANSOMWARE LINK</button>
-                        <br>
-                        <a class="list-group-item list-group-item-action sitesStyle" v-on:click="changeSite(site)"
-                            v-bind:class="{ active: site.selected }" v-for="site in ransomSites">{{ site.siteName }}
-                            <span style="color:darkgray" class="pull-right">({{formatTime(site.lastScreenshot)}} ago)</span>
-                        </a>
-                    </div>
-                    </div>
-            </div>
-            <div class="col-10 mt-5">
-                <!-- SUBMITVIEW -->
-                <div v-if="view==2">
-                    <h1>Submit Ransomware leak site</h1>
-                    <div class="row">
-                        <div class="col-6">
-            
-                            <div>
-                                <H1>DISABLED DUE TO PEOPLE SUBMITTING PEDO LINKS</H1>
-                                <!-- <div>
-                                    <label for="exampleFormControlInput1" class="form-label">Group name</label>
-                                    <input id="exampleFormControlInput1" type="text" class="form-control" v-model="submitSiteName" placeholder="">
-                                  </div>
-                                  <div class="mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Onion url</label>
-                                    <input id="exampleFormControlTextarea1" type="text" class="form-control" v-model="submitSiteUrl" placeholder="on the format: http://ekbgzchl6x2ias37.onion/">
-                                  </div>
-
-                                <button v-on:click="submitSite(submitSiteUrl, submitSiteName)" class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button> -->
-                              </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-6 mt-3">
-                              <div v-if="imageLoading" class="text-center">
-                                <div class="spinner-border" role="status">
-                                  <span class="visually-hidden">Loading...</span>
-                                </div>
-                              </div>
-                            <div v-if="submitSiteUrlResponse!==''" class="alert alert-primary" role="alert">
-                                {{submitSiteUrlResponse}}
-                              </div>
-                        </div>
-                    </div>
-
-                    <div v-if="crawlPreviewSuccess==true" class="row">
-                        <div class="col-6">
-                            <div class="input-group mt-3">
-                                Preview:
-                                <img class="img-thumbnail" v-bind:src="'data:image/jpeg;base64,'+crawlPreviewData" />
-                              </div>
-                        </div>
-                    </div>
-                
-                </div>
-
-                <!-- SCREENSHOTVIEW -->
-                <div style="padding-top: 20px;" v-if="view==1">
-                    <span   v-bind:title="selectedSite.lastScreenshot">Screenshot last captured: {{selectedSite.lastScreenshot}}</span>
-                    <div class="shadow-lg bg-body rounded mt-3">
-                        <div v-if="imageLoading" class="loading"></div>
-                        <img id="imgcontainer" class="img-fluid" v-bind:src="selectedSite.screenshot"  @load="ImgLoaded"></img>
-                    </div>
-                </div>
-               
-            </div>
-        </div>
+    
     </div>
     
       <script src="libs/axios.min.js"></script>
